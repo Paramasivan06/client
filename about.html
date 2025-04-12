@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madras Darbar Restaurant - About Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Alpine.js for interactivity -->
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+<!-- Font Awesome for arrow icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#E50000', // Bright red color from the website
+                        secondary: '#FFD700', // Gold color for accents
+                        dark: '#1A1A1A', // Dark color for navigation
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .scrollbar-hide {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;     /* Firefox */
+    }
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;             /* Chrome, Safari, Opera */
+    }
+
+    /* Optional: remove page overflow if unnecessary */
+    body {
+      overflow-x: hidden;
+    }
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #FFD700;
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after, .nav-link.active:after {
+            width: 100%;
+        }
+        
+        .zigzag {
+            background: linear-gradient(45deg, transparent 33.333%, white 33.333%, white 66.667%, transparent 66.667%), linear-gradient(-45deg, transparent 33.333%, white 33.333%, white 66.667%, transparent 66.667%);
+            background-size: 20px 10px;
+            height: 10px;
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <!-- Header Section -->
+    <header class="bg-primary">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="w-1/3">
+                <!-- Logo placeholder -->
+                <div class="h-24 w-48 bg-primary/50 rounded flex items-center justify-center">
+                    <h1 class="text-white text-2xl font-bold">Madras Darbar</h1>
+                </div>
+            </div>
+            <div class="w-1/3 flex justify-end">
+                <button id="contactBtn" class="bg-secondary hover:bg-yellow-400 text-black font-bold py-2 px-6 rounded transition duration-300">
+                    CONTACT US
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-dark text-white">
+        <div class="container mx-auto px-4">
+            <ul class="flex justify-center space-x-8 py-3">
+                <li><a href="#" class="nav-link py-2 px-3 hover:text-secondary">HOME</a></li>
+                <li><a href="#" class="nav-link py-2 px-3 hover:text-secondary active">ABOUT US</a></li>
+                <li><a href="#" class="nav-link py-2 px-3 hover:text-secondary">MENU</a></li>
+                <li><a href="#" class="nav-link py-2 px-3 hover:text-secondary">GALLERY</a></li>
+                <li><a href="#" class="nav-link py-2 px-3 hover:text-secondary">CONTACT US</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Banner Image -->
+    <div class="w-full h-64 md:h-96 bg-cover bg-center" style="background-image: url('https://sjc.microlink.io/ZDB6DmX0Cf-pLKjdFIySLnvezBoVts9hrXuuZ3y_goNUfzURweQp_0MBcP_USA0fvueEgLbpujhr2CegN_2qBg.jpeg');">
+        <div class="w-full h-full bg-black/30 flex items-center justify-center">
+            <!-- Optional banner text could go here -->
+        </div>
+    </div>
+
+    <!-- Zigzag Divider -->
+    <div class="zigzag bg-primary"></div>
+
+    <!-- About Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <!-- Image Frame -->
+                <div class="w-full md:w-1/2 mb-8 md:mb-0 flex justify-center">
+                    <div class="relative">
+                        <div class="border-4 border-secondary w-80 h-80 absolute -top-2 -left-2"></div>
+                        <div class="border-4 border-primary w-80 h-80 relative overflow-hidden">
+                            <img src="11.jpg" alt="Restaurant Interior" class="w-full h-full object-cover" id="restaurantImage">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- About Text -->
+                <div class="w-full md:w-1/2 md:pl-12">
+                    <h2 class="text-5xl font-bold mb-8">About our Restaurant</h2>
+                    <p class="text-lg mb-6">
+                        Madras Darbar Restaurant is a well known name among the best restaurant in Thailand.
+                    </p>
+                    <p class="text-lg mb-6">
+                        Our journey started 18 years ago as a small shop. Now, with 3 locations in Thailand.
+                    </p>
+                    <p class="text-lg mb-6">
+                        Specialized in various non-vegetarian cuisine, it is one of the most famous non-vegetarian restaurant in Thailand. We serve South and North Indian food.
+                    </p>
+                    <div class="mt-8">
+                        <button class="bg-primary hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300 shadow-lg">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="bg-pink-300 py-12 overflow-hidden" x-data="{
+        scrollLeft() { $refs.scroll.scrollBy({ left: -300, behavior: 'smooth' }) },
+        scrollRight() { $refs.scroll.scrollBy({ left: 300, behavior: 'smooth' }) }
+    }">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-white text-center mb-4">Lucha Faves</h2>
+        <p class="text-white text-center mb-10 text-lg">We try not to have favorites but we just can’t help it!</p>
+    
+        <!-- Scroll Buttons -->
+        <div class="relative">
+          <!-- Left Arrow -->
+          <button @click="scrollLeft" class="absolute z-10 -left-4 top-1/2 transform -translate-y-1/2 bg-black text-white w-10 h-10 rounded-full shadow-lg flex items-center justify-center">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+    
+          <!-- Carousel Scroll Container -->
+          <div x-ref="scroll" class="flex space-x-6 overflow-x-auto scrollbar-hide scroll-smooth px-4">
+            <!-- Single Card -->
+            <template x-for="(card, index) in [
+            {img: '10.jpg', tag: 'Spicy Delicious', title: 'Queso Taco'},
+            {img: '11.jpg', tag: 'Out of This World', title: 'Surfin\' California'},
+            {img: '12.jpg', tag: 'Grilled to Perfection', title: 'Mahi Taco'},
+            {img: '13.jpg', tag: 'Extra Juicy', title: 'Birria Cali'},
+            {img: '14.jpg', tag: 'Must Have, Cheesy', title: 'Suplex Quesadilla'},
+            {img: '15.jpg', tag: 'Crunchy Goodness', title: 'Taco Supreme'},
+            {img: '16.jpg', tag: 'Fresh & Spicy', title: 'Spicy Shrimp Taco'},
+            {img: '17.jpg', tag: 'Cheese Lovers', title: 'Cheesy Nacho Taco'}
+          ]" :key="card.title">          
+              <div class="bg-pink-100 w-72 min-w-[18rem] p-4 rounded-xl shadow-md transform hover:scale-105 transition-all duration-300" :class="index % 2 === 0 ? '-rotate-3' : 'rotate-3'">
+                <img :src="card.img" alt="" class="rounded-lg h-48 w-full object-cover mb-4">
+                <p class="text-pink-600 font-semibold text-sm" x-text="card.tag"></p>
+                <h3 class="text-xl font-bold text-black" x-text="card.title"></h3>
+                <a href="#" class="text-sm text-blue-700 font-medium mt-1 inline-block">Order It Now →</a>
+              </div>
+            </template>
+          </div>
+    
+          <!-- Right Arrow -->
+          <button @click="scrollRight" class="absolute z-10 -right-4 top-1/2 transform -translate-y-1/2 bg-black text-white w-10 h-10 rounded-full shadow-lg flex items-center justify-center">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-8 md:mb-0">
+                    <h3 class="text-xl font-bold mb-4">Madras Darbar</h3>
+                    <p class="max-w-md">Authentic Indian cuisine serving Thailand for over 18 years with the finest flavors and traditional recipes.</p>
+                </div>
+                <div class="mb-8 md:mb-0">
+                    <h3 class="text-xl font-bold mb-4">Opening Hours</h3>
+                    <p>Monday - Sunday</p>
+                    <p>11:00 AM - 10:00 PM</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact</h3>
+                    <p>Phone: +66 123 456 789</p>
+                    <p>Email: info@madrasdarbar.org</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p>&copy; 2025 Madras Darbar Restaurant. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Active navigation highlighting
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // Contact button click event
+            const contactBtn = document.getElementById('contactBtn');
+            contactBtn.addEventListener('click', function() {
+                // Scroll to contact section or redirect to contact page
+                const contactLink = document.querySelector('.nav-link:last-child');
+                contactLink.click();
+            });
+
+            // Image rotation for restaurant images
+            const restaurantImage = document.getElementById('restaurantImage');
+            const images = [
+                '/placeholder.svg?height=320&width=320&text=Restaurant+Interior',
+                '/placeholder.svg?height=320&width=320&text=Our+Food',
+                '/placeholder.svg?height=320&width=320&text=Our+Team'
+            ];
+            let currentImageIndex = 0;
+
+            function rotateImages() {
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                restaurantImage.src = images[currentImageIndex];
+            }
+
+            // Change image every 5 seconds
+            setInterval(rotateImages, 5000);
+        });
+    </script>
+</body>
+</html>
